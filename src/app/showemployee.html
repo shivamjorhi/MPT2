@@ -1,0 +1,57 @@
+<h1>Show Employee</h1>
+
+<table border="1">
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Salary</th>
+        <th>Employee Department</th>
+        <th colspan="2">Action</th>
+    </tr>
+    <tr *ngFor="let emp of empNew1, let i=index">
+        <td>{{emp.empId}}</td>
+        <td>{{emp.empName}}</td>
+        <td>{{emp.empSalary}}</td>
+        <td>{{emp.empDepartment}}</td>
+        <td><input type="button" value="Delete" (click)="delete(i)" /></td>
+        <td><input type="button" value="Update" (click)="update(i)" /></td>
+        
+    </tr>
+</table>
+
+
+<h1>Update Employee</h1>
+<table>
+    <tr>
+       <div class="form-group ">
+           <label for="id">Enter employee Id:</label>
+           <input type="text" class="form-control" name="Pid" id="id" [(ngModel)]="emId" #idcontrol="ngModel" aria-describedby="IdHelp" placeholder="Enter employee Id" required/>
+           <small id="IdHelp" class="form-text text-muted" *ngIf="idcontrol.touched && idcontrol.invalid">*Employee Id Required</small>
+       </div>
+    </tr>
+    <tr>
+            <div class="form-group ">
+                    <label for="id">Enter employee Name:</label>
+                    <input type="text" class="form-control" name="Pid" id="id" [(ngModel)]="emName" #namecontrol="ngModel" aria-describedby="IdHelp" placeholder="Enter employee Name" required/>
+                    <small id="IdHelp" class="form-text text-muted" *ngIf="namecontrol.touched && namecontrol.invalid">*Name is Required</small>
+                </div>
+    </tr>
+    <tr>
+            <div class="form-group ">
+                    <label for="id">Enter employee Salary:</label>
+                    <input type="text" class="form-control" name="Pid" id="id" [(ngModel)]="emSalary" #salarycontrol="ngModel" aria-describedby="IdHelp" placeholder="Enter employee Name" required/>
+                    <small id="IdHelp" class="form-text text-muted" *ngIf="salarycontrol.touched && salarycontrol.invalid">*Salary is Required</small>
+                </div>
+    </tr>
+    <tr>
+            <div class="form-group ">
+                    <label for="id">Enter employee Department:</label>
+                    <input type="text" class="form-control" name="Pid" id="id" [(ngModel)]="emDep" #depcontrol="ngModel" aria-describedby="IdHelp" placeholder="Enter employee Name" required/>
+                    <small id="IdHelp" class="form-text text-muted" *ngIf="depcontrol.touched && depcontrol.invalid">*Department is Required</small>
+                </div>
+    </tr>
+
+    <tr>
+        <td><input type="button" class="btn btn-primary"  value="Update Employee" (click)="updatevalue()" /></td>
+    </tr>
+</table>
